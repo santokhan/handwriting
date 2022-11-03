@@ -3,8 +3,12 @@ const handWriting = {
     let { timer } = props;
     let increment = timer;
     let split = props.text.split("");
+    let len = split.length;
     document.getElementById("typing").innerHTML = "";
-    split.forEach((e) => {
+    split.forEach((e, i) => {
+      if (i + 1 === len) {
+        //
+      }
       setTimeout(() => {
         document.getElementById("typing").innerHTML += e;
       }, timer);
@@ -108,15 +112,12 @@ window.onload = () => {
     const writing = formData.get("writing");
     if (writing) {
       console.log(writing);
-      const typingBox = document.getElementById("typingBox");
-      typingBox.style.display = "block";
+      document.getElementById("hand").classList.add("hand");
       handWriting.typing({
         text: writing,
         timer: 120,
       });
-
       handWriting.screenRecorderFunc();
-      setTimeout(() => {}, 1000);
     }
   });
 };

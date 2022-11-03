@@ -11,12 +11,12 @@
     <link rel="shortcut icon" href="https://explorekeywords.com/tools/resources/favicon.png" type="image/x-icon">
 </head>
 
-<body class="w-full h-screen relative overflow-hidden">
+<body class="w-full h-screen relative overflow-">
     <header class="bg-white shadow-md px-4 absolute top-0 left-0 w-full">
         <div class="flex justify-between items-center">
             <div class="w-auto"></div>
             <div class="w-full flex justify-center text-gray-900 py-2 text-2xl font-medium">
-                <img src="https://explorekeywords.com/tools/resources/favicon.png" alt="logo"> Hand Writing
+                Hand Writing
             </div>
             <div class="w-auto flex justify-end items-center sm:hidden">
                 <button type="button" id="navToggler" class="border-none outline-none hover:opacity-70" title="toggler">
@@ -47,20 +47,33 @@
                         </div>
                     </form>
                 </div>
+                <div class="mx-12 my-8">
+                    <div class="z-100 inline">
+                        <span class="text-xl inline"> animation-timing-function: ease-in-out;</span>
+                        <div class="hand inline relative"><img class="absolute bottom-[16px] left-0 h-[40px] inline"
+                                src="./assets/hand.svg" alt="hand"></div>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
     <div class="max-w-7xl mx-auto">
         <video class="hidden" src="" id="renderVideo"></video>
 
-        <div class="">
-            <div class="bg-white text-xl text-gray-900 max-w-7xl mx-auto relative" id="typingBox"
-                allow="display-capture">
-                <div class="absolute left-0 top-0 w-full -z-1000" id="stripe"></div>
-                <div class="px-12 py-8 z-100" id="typing"></div>
+        <div class="bg-white text-gray-900 max-w-7xl mx-auto relative" id="typingBox" allow="display-capture">
+            <div class="absolute left-0 top-0 w-full -z-1000" id="stripe"></div>
+            <div class="mx-12 my-8">
+                <div class="z-100 inline">
+                    <span class="text-2xl inline" id="typing"></span>
+                    <div class="inline relative h-[20px] w-[20px] overflow-visible">
+                        <img class="h-[32px] inline" id="hand" src="./assets/hand.svg" alt="hand">
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
+
 
     <script src="https://cdn.ckeditor.com/4.20.0/standard/ckeditor.js"></script>
     <script>
