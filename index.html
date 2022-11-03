@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hand writing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./assets/css/tw.css">
+    <link rel="shortcut icon" href="https://explorekeywords.com/tools/resources/favicon.png" type="image/x-icon">
+</head>
+
+<body class="w-full h-screen relative overflow-hidden">
+    <header class="bg-white shadow-md px-4 absolute top-0 left-0 w-full">
+        <div class="flex justify-between items-center">
+            <div class="w-auto"></div>
+            <div class="w-full flex justify-center text-gray-900 py-2 text-2xl font-medium">
+                <img src="https://explorekeywords.com/tools/resources/favicon.png" alt="logo"> Hand Writing
+            </div>
+            <div class="w-auto flex justify-end items-center sm:hidden">
+                <button type="button" id="navToggler" class="border-none outline-none hover:opacity-70" title="toggler">
+                    <svg width="32" height="16" viewBox="0 0 32 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="32" height="4" rx="2" fill="black"></rect>
+                        <rect y="10" width="32" height="4" rx="2" fill="black"></rect>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="w-full h-screen flex justify-center items-center" role="input">
+            <div class="w-[1000px] rounded-xl sm:rounded-2xl sm:py-4 lg:px-12 lg:pb-11">
+                <div id="formContainer">
+                    <form class="flex flex-col items-center gap-3 px-4 sm:px-4 md:px-10 md:py-2" id="animateForm"
+                        name="animateForm">
+                        <div class="w-full sm:px-2 md:px-10 flex flex-col gap-[1rem] relative">
+                            <textarea rows="10"
+                                class="w-full py-3 px-4 rounded-xl border-2 border-gray-100 focus:outline-none focus:border-gray-900 shadow-lg"
+                                id="writing" required="" name="writing" value=""></textarea>
+                            <div>
+                                <button type="submit"
+                                    class="py-2.5 px-5 text-center bg-gray-900 hover:bg-gray-800 focus:ring-4 ring-gray-400 text-white rounded-xl font-medium">
+                                    Animate
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div class="max-w-7xl mx-auto">
+        <video class="hidden" src="" id="renderVideo"></video>
+
+        <div class="">
+            <div class="bg-white text-xl text-gray-900 max-w-7xl mx-auto relative" id="typingBox"
+                allow="display-capture">
+                <div class="absolute left-0 top-0 w-full -z-1000" id="stripe"></div>
+                <div class="px-12 py-8 z-100" id="typing"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.ckeditor.com/4.20.0/standard/ckeditor.js"></script>
+    <script>
+        // Replace the <textarea id="editor1"> with a CKEditor 4
+        // instance, using default configuration.
+        // CKEDITOR.replace('editor1');
+    </script>
+    <script src="./assets/js/app.js"></script>
+</body>
+
+</html>
