@@ -1,1 +1,101 @@
-<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width"/><meta name="next-head-count" content="2"/><link rel="preload" href="/_next/static/css/d2387a0f38f40994.css" as="style"/><link rel="stylesheet" href="/_next/static/css/d2387a0f38f40994.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/_next/static/chunks/webpack-2369ea09e775031e.js" defer=""></script><script src="/_next/static/chunks/framework-ffee79c6390da51e.js" defer=""></script><script src="/_next/static/chunks/main-5cebf592faf0463a.js" defer=""></script><script src="/_next/static/chunks/pages/_app-5f3e4ef043094209.js" defer=""></script><script src="/_next/static/chunks/pages/index-672ac01049edcd8f.js" defer=""></script><script src="/_next/static/UVdO_fSBm444fMAvTuGhO/_buildManifest.js" defer=""></script><script src="/_next/static/UVdO_fSBm444fMAvTuGhO/_ssgManifest.js" defer=""></script></head><body><div id="__next"><div class="w-full h-screen grid place-items-center"><div><div class="text-center text-2xl my-2">Minimum screen size require 1280px;</div><div class="text-center text-2xl my-2">Try it in desktop browser</div></div></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{}},"page":"/","query":{},"buildId":"UVdO_fSBm444fMAvTuGhO","nextExport":true,"autoExport":true,"isFallback":false,"scriptLoader":[]}</script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hand Writing</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/pencil.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/stripe.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <div id="inputFormContainer">
+        <header>
+            <div class="bg-white shadow-md px-4 absolute top-0 left-0 w-full">
+                <div class="flex justify-between items-center">
+                    <div class="w-full flex justify-center text-center text-gray-900 py-2 text-2xl font-medium">Hand Writing</div>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="bg-white shadow-md px-4 absolute top-0 left-0 w-full">
+                <section class="py-12">
+                    <div class="max-w-screen-lg mx-auto px-4">
+                        <form id="animateForm">
+                            <div class="my-4 flex justify-center">
+                                <div class="relative">
+                                    <label>
+                                        <textarea type="text" name="title" id="title" rows="1" cols="100"
+                                            class="w-full px-6 py-4 border border-gray-100 focus:outline-none focus:border-gray-900 text-2xl font-bold text-center placeholder:text-center placeholder:crystal-blue crystal-blue text-[3.75rem] leading-normal"
+                                            placeholder="ENTER YOUR TITLE HERE" spellcheck="false"></textarea>
+                                        <i class="fas fa-edit absolute top-0 right-0 text-base text-gray-500" aria-hidden="true"></i>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="my-2 relative">
+                                <label>
+                                    <textarea name="paragraph" id="paragraph" rows="16"
+                                        class="w-full py-3 px-4 border border-gray-100 focus:outline-none focus:border-gray-900 whitespace-pre-wrap text-[2.5rem] leading-[2.87rem] placeholder:crystal-blue crystal-blue"
+                                        placeholder="YOUR CITY, ST 12345 (123) 456-7890 NO_REPLY@EXAMPLE.COM September 04, 20XX Dear Ms. Reader, Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Sincerely,"></textarea>
+                                    <i class="fas fa-edit absolute top-0 right-0 text-base text-gray-500" aria-hidden="true"></i>
+                                </label>
+                            </div>
+                            <div>
+                                <button type="submit" class="py-2.5 px-5 text-center bg-gray-900 hover:bg-gray-800 focus:ring-4 ring-gray-400 text-white rounded-xl font-medium">Animate</button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+    <!-- White Board -->
+    <div class="hidden" id="whiteboardContainer">
+        <div class="white-board relative bg-white">
+            <div class="red-ruler"></div>
+            <div class="hidden mx-auto max-w-[960px] pt-5 text-center text-[3.75rem] font-bold" id="titleContainer">
+                <div class="w-auto crystal-blue">
+                    <span id="titleBox"></span>
+                    <span class="relative" id="titlePen">
+                        <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" class="absolute inline bottom-4 writing-animation">
+                            <path
+                                d="M57.8146 16.1846L52.62 21.3791C52.0906 21.9087 51.2342 21.9087 50.7046 21.3791L38.1972 8.8716C37.6675 8.34201 37.6675 7.48563 38.1972 6.95603L43.3915 1.76148C45.4987 -0.345643 48.9242 -0.345643 51.0427 1.76148L57.8146 8.53357C59.9331 10.6407 59.9331 14.0662 57.8146 16.1846ZM33.735 11.4182L4.14506 41.0079L1.75624 54.6988C1.42946 56.5465 3.0408 58.1467 4.88876 57.8312L18.5794 55.431L48.1692 25.8413C48.6988 25.3117 48.6988 24.4553 48.1692 23.9257L35.6617 11.4182C35.1208 10.8886 34.2644 10.8886 33.735 11.4182ZM15.6948 38.4727C15.0751 37.8531 15.0751 36.8615 15.6948 36.2416L33.0475 18.8889C33.6674 18.2691 34.6588 18.2691 35.2786 18.8889C35.8985 19.5086 35.8985 20.5002 35.2786 21.12L17.9259 38.4727C17.3061 39.0925 16.3145 39.0925 15.6948 38.4727ZM11.627 47.9492H17.0357V52.0394L9.7678 53.3128L6.26345 49.8083L7.53674 42.5405H11.627V47.9492Z"
+                                fill="black"></path>
+                        </svg>
+                    </span>
+                </div>
+            </div>
+            <div class="w-full background-stripe borde">
+                <div class="hidden hand-writing-container relative" id="handWritingContainer" role="hand">
+                    <div class="pt-[44px] text-[40px] leading-[1.097] crystal-blue">
+                        <div class="whitespace-pre-wrap"><span id="paragraphBox"></span><span class="relative" id="paragraphPen"><svg width="60" height="60" viewBox="0 0 60 60" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg" class="absolute inline bottom-4 writing-animation">
+                                    <path
+                                        d="M57.8146 16.1846L52.62 21.3791C52.0906 21.9087 51.2342 21.9087 50.7046 21.3791L38.1972 8.8716C37.6675 8.34201 37.6675 7.48563 38.1972 6.95603L43.3915 1.76148C45.4987 -0.345643 48.9242 -0.345643 51.0427 1.76148L57.8146 8.53357C59.9331 10.6407 59.9331 14.0662 57.8146 16.1846ZM33.735 11.4182L4.14506 41.0079L1.75624 54.6988C1.42946 56.5465 3.0408 58.1467 4.88876 57.8312L18.5794 55.431L48.1692 25.8413C48.6988 25.3117 48.6988 24.4553 48.1692 23.9257L35.6617 11.4182C35.1208 10.8886 34.2644 10.8886 33.735 11.4182ZM15.6948 38.4727C15.0751 37.8531 15.0751 36.8615 15.6948 36.2416L33.0475 18.8889C33.6674 18.2691 34.6588 18.2691 35.2786 18.8889C35.8985 19.5086 35.8985 20.5002 35.2786 21.12L17.9259 38.4727C17.3061 39.0925 16.3145 39.0925 15.6948 38.4727ZM11.627 47.9492H17.0357V52.0394L9.7678 53.3128L6.26345 49.8083L7.53674 42.5405H11.627V47.9492Z"
+                                        fill="black"></path>
+                                </svg></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="hidden">
+        <video id="renderVideo" src=""></video>
+    </div>
+    <script src="assets/js/animation.js" defer></script>
+    <script src="assets/js/fullscreen.js" defer></script>
+    <script src="assets/js/recorder.js" defer></script>
+    <script src="assets/js/form.js" defer></script>
+    <script src="assets/js/app.js" defer></script>
+</body>
+
+</html>

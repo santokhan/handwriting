@@ -1,0 +1,32 @@
+/* .hand-writing-container will be emmediate child of .background-stripe */
+
+.white-board .background-stripe {
+    margin: 0;
+    width: 100%;
+    min-height: 100vh;
+    z-index: -20;
+    background-image: url('../image/stripe.svg');
+    margin-bottom: 100px;
+}
+
+.white-board .red-ruler {
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin-left: 120px;
+    margin-right: 120px;
+    width: 2px;
+    height: 100vh;
+    background-color: rgb(253, 104, 104);
+    z-index: 0;
+}
+
+.white-board .background-stripe .hand-writing-container {
+    padding: 0 140px;
+}
+
+@media (min-width:1920px) {
+    .paragraph-container {
+        padding: 68px
+    }
+}
