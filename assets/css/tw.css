@@ -737,6 +737,10 @@ video {
   text-align: center;
 }
 
+.text-start {
+  text-align: start;
+}
+
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
@@ -797,6 +801,16 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.text-\[\#323699\] {
+  --tw-text-opacity: 1;
+  color: rgb(50 54 153 / var(--tw-text-opacity));
+}
+
+.text-\[\#27ae60\] {
+  --tw-text-opacity: 1;
+  color: rgb(39 174 96 / var(--tw-text-opacity));
 }
 
 .shadow-md {
