@@ -63,7 +63,7 @@ function startTyping(formData) {
   // distructure
   const { title, paragraph } = formData;
 
-  const speed = formData.speed || 600;
+  const speed = formData.speed || 200;
 
   if (title && paragraph) {
     animateTitle(title, paragraph, speed);
