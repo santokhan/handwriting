@@ -52,7 +52,11 @@ async function screenRecorderFunc(formData) {
     chunks.push(e.data);
   });
   mediaRecorder.addEventListener("start", function (e) {
-    startTyping(formData);
+    fullScreen();
+    // startTyping(formData);
+    setTimeout(() => {
+      startTyping(formData);
+    }, 5000);
   });
   mediaRecorder.addEventListener("stop", function (e) {
     let blob = new Blob(chunks, {
@@ -68,10 +72,12 @@ async function screenRecorderFunc(formData) {
 
     exitFullScreen();
 
+    //
     video.srcObject = stream;
     let tracks = video.srcObject.getTracks();
     tracks.forEach((track) => track.stop());
     video.srcObject = null;
+    //
   });
   //we have to start the recorder manually
   mediaRecorder.start();

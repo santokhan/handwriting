@@ -1,10 +1,10 @@
-function animateParagraph(paragraph) {
+function animateParagraph(paragraph, speed) {
   const txtElement = document.getElementById("paragraphBox");
   const typingElement = document.querySelector("#paragraphPen");
   const handWritingContainer = document.getElementById("handWritingContainer");
   const whiteboardContainer = document.getElementById("whiteboardContainer");
 
-  const words = paragraph;
+  const words = paragraph + " ";
 
   let txt = "";
   function type() {
@@ -13,7 +13,7 @@ function animateParagraph(paragraph) {
     if (txt.length < words.length) {
       txtElement.innerHTML = txt;
 
-      setTimeout(() => type(), 30);
+      setTimeout(() => type(), speed);
       /**
        * MOST IMPORTANT
        * Scroll **whiteboardContainer** if **handWritingContainer.scrollHeight > window.innerheight**
@@ -34,12 +34,12 @@ function animateParagraph(paragraph) {
   handWritingContainer.style.display = "block";
 }
 
-function animateTitle(title, paragraph) {
+function animateTitle(title, paragraph, speed) {
   const txtElement = document.getElementById("titleBox");
   const typingElement = document.querySelector("#titlePen");
   const titleContainer = document.getElementById("titleContainer");
 
-  const words = title;
+  const words = title + " ";
 
   let txt = "";
   function type() {
@@ -48,12 +48,11 @@ function animateTitle(title, paragraph) {
     if (txt.length < words.length) {
       txtElement.innerHTML = txt;
 
-      setTimeout(() => type(), 50);
+      setTimeout(() => type(), speed);
     }
-
     if (txt.length === words.length) {
       typingElement.className = "hidden";
-      animateParagraph(paragraph);
+      animateParagraph(paragraph, speed);
     }
   }
   type();
@@ -64,8 +63,14 @@ function startTyping(formData) {
   // distructure
   const { title, paragraph } = formData;
 
-  animateTitle(title, paragraph);
+  const speed = formData.speed || 600;
 
-  fullScreen();
+  if (title && paragraph) {
+    animateTitle(title, paragraph, speed);
+  } else {
+    alert("Empty input is not allowed.");
+  }
+
+  // fullScreen();
   window.scrollTo(0, 0);
 }

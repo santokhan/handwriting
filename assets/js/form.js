@@ -8,7 +8,6 @@ function hideFormShowWhiteBoard() {
   hiddenFormContainer();
   showWhiteBoard();
 }
-
 function submitForm() {
   document.getElementById("animateForm").addEventListener("submit", (e) => {
     e.preventDefault();
@@ -17,13 +16,12 @@ function submitForm() {
     const data = {
       title: formData.get("title"),
       paragraph: formData.get("paragraph"),
+      speed: formData.get("speed"),
     };
-    // fullScreen();
     hideFormShowWhiteBoard();
     screenRecorderFunc(data);
   });
 }
-
 // remove this invocation on production
 const data = {
   title: "Paragraph a English Language Course Secondary",
@@ -62,12 +60,11 @@ Ut wisi enim
 ad minim veniam, 
 quis nostrud 
 exerci tation 
-ullamcorper 
 suscipit lobortis 
 nisl ut aliquip 
-ex ea commodo 
-consequat.`,
+ex ea commodo`,
 };
+// Testing
 // hideFormShowWhiteBoard();
 // fullScreen();
 // screenRecorderFunc(data);
