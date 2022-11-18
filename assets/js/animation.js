@@ -1,36 +1,8 @@
-class TypeWriter {
-  constructor(txtElement, words, typingElement) {
-    this.txtElement = txtElement;
-    this.words = words;
-    this.typingElement = typingElement;
-
-    // pre define
-    this.txt = "";
-    this.type();
-  }
-  type() {
-    this.txt = this.words.substring(0, this.txt.length + 1);
-
-    if (this.txt.length < this.words.length) {
-      this.txtElement.innerHTML = this.txt;
-
-      let typeSpeed = 300;
-
-      // this.typingElement.className = "fas fa-pencil-alt writing-animation";
-
-      setTimeout(() => this.type(), typeSpeed);
-    }
-
-    if (this.txt.length === this.words.length) {
-      this.typingElement.className = "hidden";
-    }
-  }
-}
-
 function animateParagraph(paragraph) {
   const txtElement = document.getElementById("paragraphBox");
   const typingElement = document.querySelector("#paragraphPen");
   const handWritingContainer = document.getElementById("handWritingContainer");
+  const whiteboardContainer = document.getElementById("whiteboardContainer");
 
   const words = paragraph;
 
@@ -41,11 +13,21 @@ function animateParagraph(paragraph) {
     if (txt.length < words.length) {
       txtElement.innerHTML = txt;
 
-      setTimeout(() => type(), 50);
+      setTimeout(() => type(), 30);
+      /**
+       * MOST IMPORTANT
+       * Scroll **whiteboardContainer** if **handWritingContainer.scrollHeight > window.innerheight**
+       */
+      if (window.innerHeight < handWritingContainer.scrollHeight + 200) {
+        whiteboardContainer.scrollTop += 100;
+      }
     }
 
     if (txt.length === words.length) {
       typingElement.className = "hidden";
+
+      // Stop recording and download on animation end
+      mediaRecorder.stop();
     }
   }
   type();
@@ -83,4 +65,7 @@ function startTyping(formData) {
   const { title, paragraph } = formData;
 
   animateTitle(title, paragraph);
+
+  fullScreen();
+  window.scrollTo(0, 0);
 }

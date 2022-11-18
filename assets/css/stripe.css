@@ -12,13 +12,10 @@
 .white-board .red-ruler {
     position: fixed;
     top: 0;
-    left: 0;
-    margin-left: 120px;
-    margin-right: 120px;
+    left: 120px;
     width: 2px;
     height: 100vh;
     background-color: rgb(253, 104, 104);
-    z-index: 0;
 }
 
 .white-board .background-stripe .hand-writing-container {
@@ -29,4 +26,36 @@
     .paragraph-container {
         padding: 68px
     }
+}
+
+body:fullscreen,
+#whiteboardContainer:fullscreen,
+#handWritingContainer:fullscreen {
+    overflow-y: scroll !important;
+    background-color: white;
+    transition: ease-in;
+}
+
+body:-ms-fullscreen,
+#whiteboardContainer:-ms-fullscreen,
+#handWritingContainer:-ms-fullscreen {
+    overflow-y: scroll !important;
+    background-color: white;
+    transition: ease-in;
+}
+
+body:-webkit-full-screen,
+#whiteboardContainer:-webkit-full-screen,
+#handWritingContainer:-webkit-full-screen {
+    overflow-y: scroll !important;
+    background-color: white;
+    transition: ease-in;
+}
+
+body:-moz-full-screen,
+#whiteboardContainer:-moz-full-screen,
+#handWritingContainer:-moz-full-screen {
+    overflow-y: scroll !important;
+    background-color: white;
+    transition: ease-in;
 }

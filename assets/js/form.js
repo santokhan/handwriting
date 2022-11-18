@@ -18,10 +18,57 @@ function submitForm() {
       title: formData.get("title"),
       paragraph: formData.get("paragraph"),
     };
-
+    // fullScreen();
     hideFormShowWhiteBoard();
     screenRecorderFunc(data);
   });
 }
 
-
+// remove this invocation on production
+const data = {
+  title: "Paragraph a English Language Course Secondary",
+  paragraph: `
+(123) 456-7890
+NO_REPLY@EXAMPLE.COM
+YOUR CITY, 
+ST 12345
+September 04, 
+20XX
+Dear Ms. 
+Reader,
+Lorem ipsum 
+dolor sit amet, 
+consectetuer 
+adipiscing elit, 
+sed diam nonummy 
+nibh euismod 
+tincidunt ut 
+laoreet dolore 
+magna aliquam 
+erat volutpat. 
+Ut wisi enim 
+ad minim veniam, 
+quis nostrud 
+exerci tation 
+magna aliquam 
+erat volutpat. 
+Ut wisi enim 
+ad minim veniam, 
+quis nostrud 
+exerci tation 
+magna aliquam 
+erat volutpat. 
+Ut wisi enim 
+ad minim veniam, 
+quis nostrud 
+exerci tation 
+ullamcorper 
+suscipit lobortis 
+nisl ut aliquip 
+ex ea commodo 
+consequat.`,
+};
+// hideFormShowWhiteBoard();
+// fullScreen();
+// screenRecorderFunc(data);
+// startTyping(data);

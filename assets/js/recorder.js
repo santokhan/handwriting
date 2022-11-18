@@ -32,16 +32,19 @@ function recorder() {
   });
 }
 
+let mediaRecorder;
 async function screenRecorderFunc(formData) {
   let stream = await navigator.mediaDevices.getDisplayMedia({
     audio: true,
     video: { mediaSource: "screen" },
   });
+
   //needed for better browser support
   const mime = MediaRecorder.isTypeSupported("video/webm; codecs=vp9")
     ? "video/webm; codecs=vp9"
     : "video/webm";
-  let mediaRecorder = new MediaRecorder(stream, {
+  // let mediaRecorder defined on top
+  mediaRecorder = new MediaRecorder(stream, {
     mimeType: mime,
   });
   let chunks = [];
@@ -49,12 +52,9 @@ async function screenRecorderFunc(formData) {
     chunks.push(e.data);
   });
   mediaRecorder.addEventListener("start", function (e) {
-    fullScreen();
     startTyping(formData);
   });
-  mediaRecorder.addEventListener("stop", function () {
-    document.exitFullscreen();
-
+  mediaRecorder.addEventListener("stop", function (e) {
     let blob = new Blob(chunks, {
       type: chunks[0].type,
     });
@@ -63,8 +63,15 @@ async function screenRecorderFunc(formData) {
     video.src = url;
     let a = document.createElement("a");
     a.href = url;
-    a.download = "video.webm";
+    a.download = formData.title;
     a.click();
+
+    exitFullScreen();
+
+    video.srcObject = stream;
+    let tracks = video.srcObject.getTracks();
+    tracks.forEach((track) => track.stop());
+    video.srcObject = null;
   });
   //we have to start the recorder manually
   mediaRecorder.start();
