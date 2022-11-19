@@ -22,3 +22,7 @@ img.hand {
     width: 100px;
     max-width: 100px;
 }
+
+.reposition-pen {
+    transform: translate(0px, 100px) rotate(87deg);
+}
