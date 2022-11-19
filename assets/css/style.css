@@ -1,0 +1,24 @@
+textarea::-webkit-scrollbar-track {
+    border-radius: 4px;
+    background-color: #F5F5F5;
+}
+
+textarea::-webkit-scrollbar {
+    display: none;
+}
+
+textarea:hover::-webkit-scrollbar {
+    width: 8px;
+    background-color: #F5F5F5;
+    display: inline;
+}
+
+textarea::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: #999;
+}
+
+img.hand {
+    width: 100px;
+    max-width: 100px;
+}

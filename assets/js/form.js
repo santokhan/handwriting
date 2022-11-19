@@ -18,8 +18,10 @@ function submitForm() {
       paragraph: formData.get("paragraph"),
       speed: formData.get("speed"),
     };
-    hideFormShowWhiteBoard();
-    screenRecorderFunc(data);
+    if (data.title && data.paragraph && data.speed) {
+      hideFormShowWhiteBoard();
+      screenRecorderFunc(data);
+    }
   });
 }
 // remove this invocation on production
