@@ -1,3 +1,15 @@
+@font-face {
+    font-family: Nastaleeq;
+    src: url(./font/Jameel-Noori-Nastaleeq-Regular.ttf);
+    font-size: 1rem;
+    direction: rtl;
+}
+
+.font-nastaleeq {
+    font-family: "Nastaleeq" !important;
+    direction: rtl;
+}
+
 textarea::-webkit-scrollbar-track {
     border-radius: 4px;
     background-color: #F5F5F5;
