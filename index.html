@@ -14,13 +14,12 @@
     <link rel="stylesheet" href="assets/css/pencil.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/stripe.css">
-    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
 </head>
 
 <body class="overflow-x-hidden">
     <div class="hidden xl:block">
         <div id="inputFormContainer" class="bg-orange-400">
-            <div class="absolute top-0 left-0 w-full z-50">
+            <div class="absolute top-0 left-0 w-full z-20">
                 <div class="flex justify-between items-center">
                     <div class="w-full flex justify-center text-center text-gray-900 py-2 text-3xl font-medium">Hand Writing Animation</div>
                 </div>
@@ -60,15 +59,73 @@ Sincerely," required></textarea>
                                 </div>
                                 <div class="my-6 relative text-2xl">
                                     <label>
-                                        Writing speed in milliseconds: <input type="number" name="speed" class="border pl-2 mx-4 rounded-lg py-1" placeholder="00" value="120">
+                                        Writing speed in milliseconds: <input type="number" name="speed" class="border px-2 mx-4 rounded-lg py-1" placeholder="00" value="120">
                                     </label>
                                 </div>
-                                <div class="flex justify-center">
+                                <div class="flex justify-center gap-2">
+                                    <button type="button" id="generateImage"
+                                        class="py-2.5 px-10 text-center bg-gray-900 hover:bg-gray-800 focus:ring-4 ring-gray-400 text-white rounded-xl font-medium text-2xl flex gap-3 items-end"><span>Generate
+                                            Image</span></button>
+
                                     <button type="submit"
                                         class="py-2.5 px-10 text-center bg-gray-900 hover:bg-gray-800 focus:ring-4 ring-gray-400 text-white rounded-xl font-medium text-2xl flex gap-3 items-end"><span>Animate</span>
                                         <i class="fa fa-play text-xl" aria-hidden="true"></i></button>
                                 </div>
                             </form>
+                        </div>
+                    </section>
+
+                    <!-- Generate Image -->
+                    <section class="hidden relative left-0 right-0 w-full bg-white z-30 p-5" id="generateImageContainer">
+                        <div class="relative mx-auto w-[800px]">
+                            <div class="relative mx-auto my-10 w-[800px] h-[500px] px-[5rem] py-[4rem] bg-red-400 change-color" id="imageContainer">
+                                <div class="relative w-full h-full bg-white rounded-[2rem]">
+                                    <div class="absolute -right-[64px] -top-[64px]"><img class="w-[160px] h-[160px] object-contain" src="assets/image/style.png" alt="style"></div>
+                                    <div class="absolute -left-[64px] -bottom-[64px] rotate-180"><img class="w-[160px] h-[160px] object-contain" src="assets/image/style.png" alt="style"></div>
+                                    <div class="w-full h-full flex justify-center items-center px-10 pb-4">
+                                        <div class="text-3xl text-center" id="titleOutput">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus commodi, placeat excepturi
+                                            numquam quaerat illum eum iusto rem</div>
+                                    </div>
+                                    <div class="absolute bottom-8 w-full flex justify-center items-end">
+                                        <div class="text-4xl">english<span class="font-bold text-red-400 change-color">summary</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pb-3">
+                                <div class="flex justify-between items-center gap-3">
+                                    <div class="flex items-center gap-[1.5rem]">
+                                        <button type="button" data-color="rgb(58 189 248)"
+                                            class="image-colors w-10 h-10 bg-sky-400 outline outline-2 outline-offset-2 outline-sky-400 rounded-full hover:brightness-90"></button>
+                                        <button type="button" data-color="rgb(45 212 191)"
+                                            class="image-colors w-10 h-10 bg-teal-400 outline outline-2 outline-offset-2 outline-teal-400 rounded-full hover:brightness-90"></button>
+                                        <button type="button" data-color="rgb(251 146 60)"
+                                            class="image-colors w-10 h-10 bg-orange-400 outline outline-2 outline-offset-2 outline-orange-400 rounded-full hover:brightness-90"></button>
+                                        <button type="button" data-color="rgb(251 113 133)"
+                                            class="image-colors w-10 h-10 bg-rose-400 outline outline-2 outline-offset-2 outline-rose-400 rounded-full hover:brightness-90"></button>
+                                        <button type="button" data-color="rgb(129 140 248)"
+                                            class="image-colors w-10 h-10 bg-indigo-400 outline outline-2 outline-offset-2 outline-indigo-400 rounded-full hover:brightness-90"></button>
+                                        <button type="button" data-color="rgb(192 132 252)"
+                                            class="image-colors w-10 h-10 bg-purple-400 outline outline-2 outline-offset-2 outline-purple-400 rounded-full hover:brightness-90"></button>
+                                    </div>
+                                    <div><button type="button" id="exportImage"
+                                            class="py-2.5 px-10 text-center bg-gray-900 hover:bg-gray-800 focus:ring-4 ring-gray-400 text-white rounded-xl font-medium text-2xl flex gap-3 items-end"><span>Export</span></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <template>
+                                <div class="pb-3 hidden">
+                                    <form>
+                                        <div class="flex justify-between gap-3">
+                                            <div><label class="flex items-center gap-3 text-xl" for="color"><span>Change color:</span> <input type="color" id="imageColor" name="color"
+                                                        class="w-10 h-10 rounded-full overflow-hidden" value="rgb(248,113,113)"></label></div>
+                                            <div><button type="button" id=""
+                                                    class="py-2.5 px-10 text-center bg-gray-900 hover:bg-gray-800 focus:ring-4 ring-gray-400 text-white rounded-xl font-medium text-2xl flex gap-3 items-end"><span>Export</span></button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <canvas id="canvas" width="800" height="500"></canvas>
+                            </template>
                         </div>
                     </section>
                 </div>
@@ -77,7 +134,8 @@ Sincerely," required></textarea>
 
         <!-- Fullscreen -->
         <div class="d-flex justify-center items-center hidden">
-            <button id="fullScreen" type="submit" class="py-2.5 px-5 text-center bg-gray-900 hover:bg-gray-800 focus:ring-4 ring-gray-400 text-white rounded-xl font-medium">Enter Fullscreen</button>
+            <button id="fullScreen" type="submit" class="py-2.5 px-5 text-center bg-gray-900 hover:bg-gray-800 focus:ring-4 ring-gray-400 text-white rounded-xl font-medium hidden">Enter
+                Fullscreen</button>
         </div>
 
         <!-- White Board -->
@@ -87,13 +145,7 @@ Sincerely," required></textarea>
                 <div class="hidden mx-auto max-w-[960px] pt-12 text-center text-[3.75rem] font-bold" id="titleContainer">
                     <div class="w-auto text-[#27ae60]">
                         <span id="titleBox"></span>
-                        <span class="relative" id="titlePen">
-                            <!-- <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" class="absolute inline bottom-4 writing-animation">
-                                    <path
-                                        d="M57.8146 16.1846L52.62 21.3791C52.0906 21.9087 51.2342 21.9087 50.7046 21.3791L38.1972 8.8716C37.6675 8.34201 37.6675 7.48563 38.1972 6.95603L43.3915 1.76148C45.4987 -0.345643 48.9242 -0.345643 51.0427 1.76148L57.8146 8.53357C59.9331 10.6407 59.9331 14.0662 57.8146 16.1846ZM33.735 11.4182L4.14506 41.0079L1.75624 54.6988C1.42946 56.5465 3.0408 58.1467 4.88876 57.8312L18.5794 55.431L48.1692 25.8413C48.6988 25.3117 48.6988 24.4553 48.1692 23.9257L35.6617 11.4182C35.1208 10.8886 34.2644 10.8886 33.735 11.4182ZM15.6948 38.4727C15.0751 37.8531 15.0751 36.8615 15.6948 36.2416L33.0475 18.8889C33.6674 18.2691 34.6588 18.2691 35.2786 18.8889C35.8985 19.5086 35.8985 20.5002 35.2786 21.12L17.9259 38.4727C17.3061 39.0925 16.3145 39.0925 15.6948 38.4727ZM11.627 47.9492H17.0357V52.0394L9.7678 53.3128L6.26345 49.8083L7.53674 42.5405H11.627V47.9492Z"
-                                        fill="black"></path>
-                                </svg> -->
-                            <span class="absolute inline bottom-4 hand-animation w-2 h-2 p-2  overflow-visible">
+                        <span class="relative" id="titlePen"><span class="absolute inline bottom-4 hand-animation w-2 h-2 p-2  overflow-visible">
                                 <img src="./assets/image/hand.svg" alt="hand" class="absolute left-0 -bottom-[1rem] hand reposition-pen">
                             </span>
                         </span>
@@ -105,11 +157,6 @@ Sincerely," required></textarea>
                             <div class="whitespace-pre-wrap"><span id="paragraphBox"></span><span class="relative" id="paragraphPen"><span
                                         class="absolute inline bottom-4 hand-animation w-2 h-2 p-2 overflow-visible"><img src="./assets/image/hand.svg" alt="hand"
                                             class="absolute left-0 -bottom-[1rem] hand reposition-pen"></span></span>
-                                <!-- <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" class="absolute inline bottom-4 writing-animation">
-                                        <path
-                                            d="M57.8146 16.1846L52.62 21.3791C52.0906 21.9087 51.2342 21.9087 50.7046 21.3791L38.1972 8.8716C37.6675 8.34201 37.6675 7.48563 38.1972 6.95603L43.3915 1.76148C45.4987 -0.345643 48.9242 -0.345643 51.0427 1.76148L57.8146 8.53357C59.9331 10.6407 59.9331 14.0662 57.8146 16.1846ZM33.735 11.4182L4.14506 41.0079L1.75624 54.6988C1.42946 56.5465 3.0408 58.1467 4.88876 57.8312L18.5794 55.431L48.1692 25.8413C48.6988 25.3117 48.6988 24.4553 48.1692 23.9257L35.6617 11.4182C35.1208 10.8886 34.2644 10.8886 33.735 11.4182ZM15.6948 38.4727C15.0751 37.8531 15.0751 36.8615 15.6948 36.2416L33.0475 18.8889C33.6674 18.2691 34.6588 18.2691 35.2786 18.8889C35.8985 19.5086 35.8985 20.5002 35.2786 21.12L17.9259 38.4727C17.3061 39.0925 16.3145 39.0925 15.6948 38.4727ZM11.627 47.9492H17.0357V52.0394L9.7678 53.3128L6.26345 49.8083L7.53674 42.5405H11.627V47.9492Z"
-                                            fill="black"></path>
-                                    </svg> -->
                             </div>
                         </div>
                     </div>
@@ -117,7 +164,7 @@ Sincerely," required></textarea>
             </div>
         </div>
         <div class="hidden">
-            <video id="renderVideo" src=""></video>
+            <video id="renderVideo" src="" class="hidden"></video>
         </div>
     </div>
 
@@ -135,9 +182,12 @@ Sincerely," required></textarea>
         </div>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
+        integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="assets/js/animation.js" defer></script>
     <script src="assets/js/fullscreen.js" defer></script>
     <script src="assets/js/recorder.js" defer></script>
+    <script src="assets/js/generate.js" defer></script>
     <script src="assets/js/form.js" defer></script>
     <script src="assets/js/app.js" defer></script>
 </body>

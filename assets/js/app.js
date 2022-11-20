@@ -5,4 +5,7 @@ class App {
 window.onload = () => {
   //
   submitForm();
+
+  // Generate Image
+  generateImage();
 };

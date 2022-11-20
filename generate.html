@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hand Writing</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/tw.css">
+    <link rel="stylesheet" href="assets/css/pencil.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/stripe.css">
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+</head>
+
+<body class="overflow-x-hidden">
+    <!-- Generate Image -->
+    <section class="hiddem relative left-0 right-0 w-full bg-white z-30 p-5" id="generateImageContainer">
+        <div class="mx-auto w-[800px]">
+            <div class="mx-auto my-10 w-[800px] h-[500px] px-[5rem] py-[4rem] bg-red-400 change-color" id="bgGenerateImage">
+                <div class="relative w-full h-full bg-white rounded-[2rem]">
+                    <div class="absolute -right-[64px] -top-[64px]"><img class="w-[160px] h-[160px] object-contain" src="assets/image/style.png" alt="style"></div>
+                    <div class="absolute -left-[64px] -bottom-[64px] rotate-180"><img class="w-[160px] h-[160px] object-contain" src="assets/image/style.png" alt="style"></div>
+
+                    <div class="w-full h-full flex justify-center items-center px-10">
+                        <div class="text-3xl text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus commodi, placeat excepturi numquam quaerat illum eum
+                            iusto rem</div>
+                    </div>
+
+                    <div class="absolute bottom-0 w-full flex justify-center items-end p-4">
+                        <div class="text-4xl">english<span class="font-bold text-red-400 change-color">summary</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="pb-3">
+                <div class="flex justify-between gap-3">
+                    <div class="flex items-center gap-[1.5rem]">
+                        <button type="button" data-color="rgb(58 189 248)" class="image-colors w-10 h-10 bg-sky-400 outline outline-2 outline-offset-2 outline-sky-400 rounded-full"></button>
+                        <button type="button" data-color="rgb(45 212 191)" class="image-colors w-10 h-10 bg-teal-400 outline outline-2 outline-offset-2 outline-teal-400 rounded-full"></button>
+                        <button type="button" data-color="rgb(251 146 60)" class="image-colors w-10 h-10 bg-orange-400 outline outline-2 outline-offset-2 outline-orange-400 rounded-full"></button>
+                        <button type="button" data-color="rgb(251 113 133)" class="image-colors w-10 h-10 bg-rose-400 outline outline-2 outline-offset-2 outline-rose-400 rounded-full"></button>
+                        <button type="button" data-color="rgb(129 140 248)" class="image-colors w-10 h-10 bg-indigo-400 outline outline-2 outline-offset-2 outline-indigo-400 rounded-full"></button>
+                        <button type="button" data-color="rgb(192 132 252)" class="image-colors w-10 h-10 bg-purple-400 outline outline-2 outline-offset-2 outline-purple-400 rounded-full"></button>
+                    </div>
+                    <div><button type="button" id="exportImage"
+                            class="py-2.5 px-10 text-center bg-gray-900 hover:bg-gray-800 focus:ring-4 ring-gray-400 text-white rounded-xl font-medium text-2xl flex gap-3 items-end"><span>Export</span></button>
+                    </div>
+                </div>
+            </div>
+            <template>
+                <div class="pb-3 hidden">
+                    <form>
+                        <div class="flex justify-between gap-3">
+                            <div><label class="flex items-center gap-3 text-xl" for="color"><span>Change color:</span> <input type="color" id="imageColor" name="color"
+                                        class="w-10 h-10 rounded-full overflow-hidden" value="rgb(248,113,113)"></label></div>
+                            <div><button type="button" id="exportImage"
+                                    class="py-2.5 px-10 text-center bg-gray-900 hover:bg-gray-800 focus:ring-4 ring-gray-400 text-white rounded-xl font-medium text-2xl flex gap-3 items-end"><span>Export</span></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </template>
+        </div>
+    </section>
+
+    <script src="assets/js/animation.js" defer></script>
+    <script src="assets/js/fullscreen.js" defer></script>
+    <script src="assets/js/recorder.js" defer></script>
+    <script src="assets/js/form.js" defer></script>
+    <script src="assets/js/app.js" defer></script>
+</body>
+
+</html>
