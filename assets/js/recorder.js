@@ -52,7 +52,8 @@ async function screenRecorderFunc(formData) {
     chunks.push(e.data);
   });
   mediaRecorder.addEventListener("start", function (e) {
-    fullScreen();
+//     fullScreen();
+    toggleFullscreen();
     // startTyping(formData);
     setTimeout(() => {
       startTyping(formData);
@@ -70,8 +71,8 @@ async function screenRecorderFunc(formData) {
     a.download = formData.title;
     a.click();
 
-    exitFullScreen();
-
+//     exitFullScreen();
+toggleFullscreen()
     //
     video.srcObject = stream;
     let tracks = video.srcObject.getTracks();
