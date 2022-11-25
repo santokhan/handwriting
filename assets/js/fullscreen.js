@@ -13,3 +13,12 @@ function exitFullScreen() {
       .catch((err) => console.error(err));
   }
 }
+
+// MDN
+function toggleFullScreen() {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen();
+  } else if (document.exitFullscreen) {
+    document.exitFullscreen();
+  }
+}
